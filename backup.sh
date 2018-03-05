@@ -14,9 +14,7 @@ rm -rf /backup/dump
 
 #Slack nontification
 --echo Sending slack Notification
-curl -X POST -H 'Content-type: application/json' \
---data '{"text":"Test slack webhook notification"}' \
-$SLACK_URL
+curl -X POST -H 'Content-type: application/json' --data '{"text":"Test slack webhook notification"}' $SLACK_URL
 
 # Delete backup files
 if [ -n "${MAX_BACKUPS}" ]; then
