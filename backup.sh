@@ -15,7 +15,7 @@ rm -rf /backup/dump
 #Slack nontification
 echo --Sending slack Notification for $DBNAME
 curl -X POST -H 'Content-type: application/json' \
---data '{"text":"$DBNAME backup done and uploaded to AWS"}' \
+--data '{"text":"'$DBNAME' backup done and uploaded to S3"}' \
 $SLACK_URL
 
 # Delete backup files
