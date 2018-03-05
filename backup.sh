@@ -13,7 +13,7 @@ aws s3 cp "/backup/${BACKUP_NAME}" "s3://${S3_BUCKET}/${S3_PATH}/${BACKUP_NAME}"
 rm -rf /backup/dump
 
 #Slack nontification
-echo --Sending slack Notification $SLACK_URL
+echo --Sending slack Notification for $DBNAME
 curl -X POST -H 'Content-type: application/json' \
 --data '{"text":"$DBNAME backup done and uploaded to AWS"}' \
 $SLACK_URL
