@@ -12,6 +12,7 @@ aws s3 cp "/backup/${BACKUP_NAME}" "s3://${S3_BUCKET}/${S3_PATH}/${BACKUP_NAME}"
 # Delete temp files
 rm -rf /backup/dump
 
+#Slack nontification
 curl -X POST -H 'Content-type: application/json' \
 --data '{"text":"Test slack webhook notification"}' \
 $SLACK_URL
