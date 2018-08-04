@@ -6,7 +6,7 @@ RUN apk add --no-cache curl mongodb-tools py2-pip && \
   pip install pymongo awscli && \
   mkdir /backup
 
-ENV S3_PATH=mongodb AWS_DEFAULT_REGION=us-east-1
+#ENV S3_PATH=mongodb AWS_DEFAULT_REGION=us-east-1
 
 COPY entrypoint.sh /usr/local/bin/entrypoint
 COPY backup.sh /usr/local/bin/backup
