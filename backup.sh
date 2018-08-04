@@ -18,7 +18,7 @@ cd /backup/${DBNAME} && tar -cvzf "${BACKUP_NAME}" ${DBNAME}
 
 if [ "$S3_UPLOAD" = "true" ]; then
 
-# Upload backup
+# Upload backups
 #aws s3 cp "/backup/${DBNAME}/${BACKUP_NAME}" "s3://${S3_BUCKET}/${S3_PATH}/${BACKUP_NAME}"
 aws s3 cp "/backup/${DBNAME}/${BACKUP_NAME}" "s3://${S3_BUCKET}/${BACKUP_NAME}"
 # Delete temp files
