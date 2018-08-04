@@ -12,7 +12,9 @@ pipeline:
     password: yogesh12
     repo: registry.learnindialearn.in:5000/mongo-backup
     insecure: true
-    auto_tag: true  
+    auto_tag: true
+    when:
+      event: branch
      
   notify:
     image: drillster/drone-email
