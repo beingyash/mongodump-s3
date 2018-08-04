@@ -1,9 +1,4 @@
 pipeline:
-  test:
-    image: node
-    commands:
-      - npm i
-      - npm run lint
       
   docker:
     image: plugins/docker
@@ -13,8 +8,6 @@ pipeline:
     repo: registry.learnindialearn.in:5000/mongo-backup
     insecure: true
     auto_tag: true
-    when:
-      event: branch
      
   notify:
     image: drillster/drone-email
