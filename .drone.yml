@@ -1,0 +1,21 @@
+pipeline:
+      
+  docker:
+    image: plugins/docker
+    registry: registry.learnindialearn.in:5000
+    username: docker
+    password: yogesh12
+    repo: registry.learnindialearn.in:5000/mongo-backup
+    insecure: true
+    tags: non-prod
+    when:
+      branch: non-prod
+     
+  notify:
+    image: drillster/drone-email
+    host: smtp.mailgun.org
+    username: ci@learnindialearn.com
+    password: yogesh12
+    from: ci@learnindialearn.com
+    when:
+      status: [ changed, failure, success ]
