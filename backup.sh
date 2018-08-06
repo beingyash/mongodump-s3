@@ -10,7 +10,7 @@ for MONGO_URI in $MONGO_URIS; do
 
 	echo "--Starting backup of ${DBNAME}"
 	# Run backup
-	mongodump --uri=${MONGO_URI} --gzip -o /backup/${DBNAME}
+	mongodump --uri=${MONGO_URI} --gzip --excludeCollection UserActivity -o /backup/${DBNAME}
 
 	echo "--Compressing ${DBNAME} backup"
 	# Compress backup
