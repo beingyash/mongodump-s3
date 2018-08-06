@@ -35,7 +35,7 @@ for MONGO_URI in $MONGO_URIS; do
 	#Slack nontification
 	echo --Sending slack Notification for ${DBNAME}
 	curl -X POST -H 'Content-type: application/json' \
-	--data '{"text":"${DBNAME} backup done and saved to lil-utils:/root/backup"}' \
+	--data '{"text":"'${DBNAME}' backup done and saved to lil-utils:/root/backup"}' \
 	$SLACK_URL
 
 	# Delete backup files
