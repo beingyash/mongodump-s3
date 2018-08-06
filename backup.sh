@@ -26,12 +26,16 @@ for MONGO_URI in $MONGO_URIS; do
 		aws s3 cp "/backup/${DBNAME}/${BACKUP_NAME}" "s3://${S3_BUCKET}/${BACKUP_NAME}"
 		# Delete temp files
 		rm -rf /backup/${DBNAME}
+		echo --Sending slack Notification for ${DBNAME}
+		curl -X POST -H 'Content-type: application/json' \
+		--data '{"text":"${DBNAME} backup done and uploaded to S3"}' \
+		$SLACK_URL
 	fi
 
 	#Slack nontification
 	echo --Sending slack Notification for ${DBNAME}
 	curl -X POST -H 'Content-type: application/json' \
-	--data '{"text":"${DBNAME} backup done and uploaded to S3"}' \
+	--data '{"text":"${DBNAME} backup done and saved to lil-utils:/root/backup"}' \
 	$SLACK_URL
 
 	# Delete backup files
