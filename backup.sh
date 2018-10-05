@@ -6,7 +6,7 @@ for MONGO_URI in $MONGO_URIS; do
 	#Extracting dbname from MONGO_URI	
 	DBNAME=$(echo ${MONGO_URI} | sed "s/.*[0-9]\///")
 	#Name of the compressed backup file
-	BACKUP_NAME="${DBNAME}-$(date -u +%Y-%m-%d_%H-%M-%S)_UTC.gz"
+	BACKUP_NAME="${DBNAME}-$(date -u +%Y-%m-%d_%H-%M-%S)_UTC.tar.gz"
 
 	echo "--Starting backup of ${DBNAME}"
 	# Run backup
